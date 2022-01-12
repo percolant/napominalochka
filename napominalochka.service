@@ -1,0 +1,15 @@
+[Unit]
+Description=napominalochka
+After=syslog.target network.target
+
+[Service]
+User=percolant
+Group=sudo
+WorkingDirectory=/opt/napominalochka
+ExecStart=bash -c "/opt/napominalochka/venv/bin/napominalochka"
+Environment="TELEGRAM_API_TOKEN=..."
+Environment="TELEGRAM_USER_ID=..."
+Environment="TELEGRAM_CHAT_ID=..."
+
+[Install]
+WantedBy=multi-user.target
